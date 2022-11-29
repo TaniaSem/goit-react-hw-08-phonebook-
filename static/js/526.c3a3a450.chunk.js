@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_hw_08_phonebook_=self.webpackChunkgoit_react_hw_08_phonebook_||[]).push([[526],{4526:function(n,t,e){e.r(t),e.d(t,{default:function(){return u}});var o,i,r=e(168),c=e(6444),s=c.ZP.div(o||(o=(0,r.Z)(["\n  display: flex;\n  justify-content: center;\n  margin-top: 100px;\n"]))),a=c.ZP.h1(i||(i=(0,r.Z)(["\n  font-weight: 700;\n"]))),h=e(184),u=function(){return(0,h.jsx)(s,{children:(0,h.jsx)(a,{children:"This is an application for storing your contacts"})})}}}]);
+//# sourceMappingURL=526.c3a3a450.chunk.js.map
