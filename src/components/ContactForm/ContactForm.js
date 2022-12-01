@@ -33,6 +33,7 @@ export const ContactForm = () => {
       contactName,
       phone,
     };
+    console.log(contact);
     dispatch(addContact(contact));
     setName('');
     setPhone('');
