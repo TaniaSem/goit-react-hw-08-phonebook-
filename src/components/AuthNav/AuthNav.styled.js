@@ -8,7 +8,7 @@ export const Box = styled.div`
 
 export const NavItem = styled(NavLink)`
   text-decoration: none;
-  color: #212121;
+  color: #064927;
   font-size: 20px;
   font-weight: 700;
   &.active {

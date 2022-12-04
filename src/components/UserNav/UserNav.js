@@ -1,7 +1,7 @@
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/authorization/authOperatoins';
-import { Box } from './UserNav.styled';
+import { Box, ExitBtn, UserName } from './UserNav.styled';
 
 export const UserNav = () => {
   const { user } = useAuth();
@@ -11,8 +11,8 @@ export const UserNav = () => {
 
   return (
     <Box>
-      <b>{user.email}</b>
-      <button onClick={handleLogOut}>Logout</button>
+      <UserName>{user.email}</UserName>
+      <ExitBtn onClick={handleLogOut}>Logout</ExitBtn>
     </Box>
   );
 };

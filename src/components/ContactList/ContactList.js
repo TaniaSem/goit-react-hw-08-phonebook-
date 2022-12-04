@@ -21,10 +21,10 @@ export const ContactList = () => {
 
   return (
     <List>
-      {visibleContacts.map(({ id, name, phone }) => (
+      {visibleContacts.map(({ id, name, number }) => (
         <ListItem key={id}>
           <ItemText>
-            {name}: {phone}
+            {name}: {number}
           </ItemText>
           <BtnDelete onClick={() => deleteContactById(id)} disabled={isLoading}>
             Delete
