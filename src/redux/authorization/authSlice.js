@@ -42,10 +42,7 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        toast.success(`You are logged in `, {
-          duration: 4000,
-          position: 'top-center',
-        });
+        toast.success(`You are logged in `);
       })
       .addCase(logIn.rejected, (state, action) => {
         state.error = action.payload;
@@ -63,14 +60,7 @@ const authSlice = createSlice({
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
-        toast.success('Success Notification !', {
-          position: toast.POSITION.TOP_CENTER,
-        });
-      })
-      .addCase(logOut.rejected, (state, action) => {
-        state.error = action.payload;
-        state.isLoading = false;
-        toast.error(`Sorry, ${action.payload}`, {
+        toast.success(`You are logged out `, {
           duration: 4000,
           position: 'top-center',
         });

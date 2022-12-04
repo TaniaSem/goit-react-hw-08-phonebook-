@@ -7,7 +7,10 @@ export const UserNav = () => {
   const { user } = useAuth();
   const dispatch = useDispatch();
 
-  const handleLogOut = () => dispatch(logOut());
+  const handleLogOut = () => {
+    console.log('Click');
+    dispatch(logOut());
+  };
 
   return (
     <Box>
