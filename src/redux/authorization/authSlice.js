@@ -1,6 +1,5 @@
+import { toast } from 'react-toastify';
 import { logIn, logOut, refreshUser, register } from './authOperatoins';
-import { toast } from 'react-hot-toast';
-
 const { createSlice } = require('@reduxjs/toolkit');
 
 const authSlice = createSlice({
@@ -42,7 +41,16 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        toast.success(`You are logged in `);
+        toast.success('🦄 Wow so easy!', {
+          position: 'bottom-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
       })
       .addCase(logIn.rejected, (state, action) => {
         state.error = action.payload;
@@ -71,6 +79,7 @@ const authSlice = createSlice({
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;

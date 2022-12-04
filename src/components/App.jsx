@@ -1,7 +1,6 @@
-import { useAuth } from "hooks/useAuth";
 import { useEffect } from "react";
 import { lazy } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {  Route, Routes } from "react-router-dom";
 import { refreshUser } from "redux/authorization/authOperatoins";
 import { selectIsRefreshing } from "redux/authorization/authSelectors";
@@ -17,10 +16,10 @@ const Authorization = lazy(() => import('../pages/Authorization/Authorization'))
 
 export const App = () => {
   const dispatch = useDispatch();
-  const {isRefrishing} = useAuth(selectIsRefreshing)
+  const isRefreshing = useSelector(selectIsRefreshing)
 
   useEffect(() => {dispatch(refreshUser())},[dispatch])
-  return (isRefrishing ? ('Fetching user data...') : (<div>
+  return (isRefreshing ? ('Fetching user data...') : (<div>
       <Routes>
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home/>} />

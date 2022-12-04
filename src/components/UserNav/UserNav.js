@@ -8,7 +8,6 @@ export const UserNav = () => {
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
-    console.log('Click');
     dispatch(logOut());
   };
 
