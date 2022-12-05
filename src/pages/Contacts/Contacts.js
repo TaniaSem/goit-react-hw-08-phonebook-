@@ -13,8 +13,10 @@ const Contacts = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    if (!contacts) {
+      dispatch(fetchContacts());
+    }
+  }, [dispatch, contacts]);
 
   return (
     <Box>

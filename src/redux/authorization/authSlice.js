@@ -12,7 +12,7 @@ const authSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(register.pending, (state, action) => {
+      .addCase(register.pending, state => {
         state.error = null;
         state.isLoading = true;
       })
@@ -20,17 +20,29 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        toast.success(`Success! You are logged in `, {
-          duration: 4000,
-          position: 'top-center',
+        toast.success('Registration is success! You are logged in', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
         });
       })
       .addCase(register.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
-        toast.error(`Sorry, wrong data!`, {
-          duration: 4000,
-          position: 'top-center',
+        toast.error('Invalid data, please try again!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
         });
       })
       .addCase(logIn.pending, state => {
@@ -41,8 +53,8 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        toast.success('🦄 Wow so easy!', {
-          position: 'bottom-right',
+        toast.success('Success! You are logged in', {
+          position: 'top-right',
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -55,9 +67,15 @@ const authSlice = createSlice({
       .addCase(logIn.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
-        toast.error(`Sorry, try again `, {
-          duration: 4000,
-          position: 'top-center',
+        toast.error('Invalid data, please try again!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
         });
       })
       .addCase(logOut.pending, state => {
@@ -68,9 +86,15 @@ const authSlice = createSlice({
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
-        toast.success(`You are logged out `, {
-          duration: 4000,
-          position: 'top-center',
+        toast.success('Success! You are logged out', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
         });
       })
       .addCase(refreshUser.pending, state => {

@@ -2,11 +2,13 @@ import { useEffect } from "react";
 import { lazy } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {  Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { refreshUser } from "redux/authorization/authOperatoins";
 import { selectIsRefreshing } from "redux/authorization/authSelectors";
 import Layout from "./Layout/Layout";
 import { PrivateRoute } from "./PrivateRoute";
 import { RestrictedRoute } from "./RestrictedRoute";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = lazy(() => import('../pages/Home/Home'))
 const Contacts = lazy(() => import('../pages/Contacts/Contacts'))
@@ -27,7 +29,8 @@ export const App = () => {
           <Route path="/registration" element={<RestrictedRoute component={Registration} redirectTo='/contacts' />} />
         <Route path="/contacts" element={<PrivateRoute component={Contacts} redirectTo='/login' />} />
         </Route>
-      </Routes> 
-    </div>)
+    </Routes> 
+    <ToastContainer />
+  </div>)
   );
 };
